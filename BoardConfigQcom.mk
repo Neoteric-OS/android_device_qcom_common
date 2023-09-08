@@ -23,6 +23,11 @@ ifeq ($(call is-board-platform-in-list, msm8937 msm8953 msm8996 msm8998 sdm660),
   TARGET_USES_MEDIA_EXTENSIONS := true
 endif
 
+# Qualcomm kernel.
+ifeq ($(TARGET_PREBUILT_KERNEL),)
+TARGET_COMPILE_WITH_MSM_KERNEL := true
+endif
+
 # Default mount point symlinks to false
 # since they are not used on 8998 and up
 TARGET_MOUNT_POINTS_SYMLINKS ?= false
