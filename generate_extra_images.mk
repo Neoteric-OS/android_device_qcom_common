@@ -118,68 +118,6 @@ metadataimage: $(INSTALLED_METADATAIMAGE_TARGET)
 endif
 endif
 
-#----------------------------------------------------------------------
-# Generate device tree overlay image (dtbo.img)
-#----------------------------------------------------------------------
-ifneq ($(strip $(TARGET_NO_KERNEL)),true)
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-ifeq ($(strip $(BOARD_KERNEL_SEPARATED_DTBO)),true)
-
-MKDTIMG := $(HOST_OUT_EXECUTABLES)/mkdtimg$(HOST_EXECUTABLE_SUFFIX)
-
-# Most specific paths must come first in possible_dtbo_dirs
-possible_dtbo_dirs = $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/arch/arm64/boot/dts $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/arch/arm/boot/dts
-$(shell mkdir -p $(possible_dtbo_dirs))
-dtbo_dir = $(firstword $(wildcard $(possible_dtbo_dirs)))
-dtbo_objs = $(shell find $(dtbo_dir) -name \*.dtbo)
-
-define build-dtboimage-target
-    $(call pretty,"Target dtbo image: $(BOARD_PREBUILT_DTBOIMAGE)")
-    $(hide) $(MKDTIMG) create $@ --page_size=$(BOARD_KERNEL_PAGESIZE) $(dtbo_objs)
-    $(hide) chmod a+r $@
-endef
-
-# Definition of BOARD_PREBUILT_DTBOIMAGE is in AndroidBoardCommon.mk
-# so as to ensure it is defined well in time to set the dependencies on
-# BOARD_PREBUILT_DTBOIMAGE
-$(BOARD_PREBUILT_DTBOIMAGE): $(MKDTIMG) $(INSTALLED_KERNEL_TARGET)
-	$(build-dtboimage-target)
-
-endif
-endif
-endif
-
-#----------------------------------------------------------------------
-# Generate device tree image (dt.img)
-#----------------------------------------------------------------------
-ifneq ($(strip $(TARGET_NO_KERNEL)),true)
-ifeq ($(strip $(BOARD_KERNEL_SEPARATED_DT)),true)
-ifeq ($(strip $(BUILD_TINY_ANDROID)),true)
-include device/qcom/common/dtbtool/Android.mk
-endif
-
-DTBTOOL := $(HOST_OUT_EXECUTABLES)/dtbTool$(HOST_EXECUTABLE_SUFFIX)
-
-INSTALLED_DTIMAGE_TARGET := $(PRODUCT_OUT)/dt.img
-
-# Most specific paths must come first in possible_dtb_dirs
-possible_dtb_dirs = $(KERNEL_OUT)/arch/$(TARGET_KERNEL_ARCH)/boot/dts/qcom/ $(KERNEL_OUT)/arch/arm/boot/dts/qcom/ $(KERNEL_OUT)/arch/$(TARGET_KERNEL_ARCH)/boot/dts/ $(KERNEL_OUT)/arch/arm/boot/dts/ $(KERNEL_OUT)/arch/arm/boot/
-dtb_dir = $(firstword $(wildcard $(possible_dtb_dirs)))
-
-define build-dtimage-target
-    $(call pretty,"Target dt image: $(INSTALLED_DTIMAGE_TARGET)")
-    $(hide) $(DTBTOOL) -o $@ -s $(BOARD_KERNEL_PAGESIZE) -p $(KERNEL_OUT)/scripts/dtc/ $(dtb_dir)
-    $(hide) chmod a+r $@
-endef
-
-$(INSTALLED_DTIMAGE_TARGET): $(DTBTOOL) $(INSTALLED_KERNEL_TARGET)
-	$(build-dtimage-target)
-
-ALL_DEFAULT_INSTALLED_MODULES += $(INSTALLED_DTIMAGE_TARGET)
-ALL_MODULES.$(LOCAL_MODULE).INSTALLED += $(INSTALLED_DTIMAGE_TARGET)
-endif
-endif
-
 #---------------------------------------------------------------------
 # Generate usbdisk.img FAT32 image
 # Please NOTICE: the valid max size of usbdisk.bin is 10GB
@@ -241,39 +179,8 @@ else
 aboot: $(INSTALLED_BOOTLOADER_MODULE)
 endif
 
-.PHONY: kernel
-kernel: $(INSTALLED_BOOTIMAGE_TARGET) $(INSTALLED_DTBOIMAGE_TARGET)
-
-.PHONY: dtboimage
-dtboimage: $(INSTALLED_DTBOIMAGE_TARGET)
-
 .PHONY: recoveryimage
 recoveryimage: $(INSTALLED_RECOVERYIMAGE_TARGET)
-
-.PHONY: kernelclean
-kernelclean:
-	$(hide) make -C $(TARGET_KERNEL_SOURCE) O=$(KERNEL_TO_BUILD_ROOT_OFFSET)$(PRODUCT_OUT)/obj/KERNEL_OBJ/ ARCH=$(TARGET_ARCH) CROSS_COMPILE=arm-eabi-  clean
-	$(hide) make -C $(TARGET_KERNEL_SOURCE) O=$(KERNEL_TO_BUILD_ROOT_OFFSET)$(PRODUCT_OUT)/obj/KERNEL_OBJ/ ARCH=$(TARGET_ARCH) CROSS_COMPILE=arm-eabi-  mrproper
-	$(hide) make -C $(TARGET_KERNEL_SOURCE) O=$(KERNEL_TO_BUILD_ROOT_OFFSET)$(PRODUCT_OUT)/obj/KERNEL_OBJ/ ARCH=$(TARGET_ARCH) CROSS_COMPILE=arm-eabi-  distclean
-	$(hide) if [ -f "$(INSTALLED_BOOTIMAGE_TARGET)" ]; then  rm $(INSTALLED_BOOTIMAGE_TARGET); fi
-	$(hide) if [ -f "$(INSTALLED_BOOTIMAGE_TARGET).nonsecure" ]; then  rm $(INSTALLED_BOOTIMAGE_TARGET).nonsecure; fi
-	$(hide) if [ -f "$(PRODUCT_OUT)/kernel" ]; then  rm $(PRODUCT_OUT)/kernel; fi
-	@echo "kernel cleanup done"
-
-ifeq ($(TARGET_COMPILE_WITH_MSM_KERNEL),true)
-# Set correct dependency for kernel modules
-ifneq ($(KERNEL_MODULES_INSTALL),)
-ifneq ($(BOARD_GKI_KERNEL_MODULES),)
-$(BOARD_GKI_KERNEL_MODULES): $(INSTALLED_BOOTIMAGE_TARGET)
-endif
-ifneq ($(BOARD_VENDOR_KERNEL_MODULES),)
-$(BOARD_VENDOR_KERNEL_MODULES): $(INSTALLED_BOOTIMAGE_TARGET)
-endif
-ifneq ($(BOARD_RECOVERY_KERNEL_MODULES),)
-$(BOARD_RECOVERY_KERNEL_MODULES): $(INSTALLED_BOOTIMAGE_TARGET)
-endif
-endif
-endif
 
 define board-vendorkernel-ota
   $(call pretty,"Processing following kernel modules for vendor: $(BOARD_VENDOR_KERNEL_MODULES)")
