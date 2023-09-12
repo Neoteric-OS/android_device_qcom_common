@@ -80,20 +80,6 @@ ifneq "$(LOCAL_MODULE_KBUILD_NAME)" ""
 	mv -f $(kbuild_out) $@
 endif
 
-# To ensure KERNEL_OUT and TARGET_PREBUILT_INT_KERNEL are defined,
-# kernel_definitions.mk must be included. While m and regular
-# make builds will include kernel_definitions.mk, mm and mmm builds
-# do not. Therefore, we need to explicitly include kernel_definitions.mk.
-# It is safe to include it more than once because the entire file is
-# guarded by "ifeq ($(TARGET_PREBUILT_KERNEL),) ... endif".
-# If the kernel_definitions.mk is not found, fallback to the AndroidKernel.mk
-ifneq ($(wildcard device/qcom/kernelscripts/kernel_definitions.mk),)
-TARGET_KERNEL_PATH := device/qcom/kernelscripts/kernel_definitions.mk
-else
-TARGET_KERNEL_PATH := $(TARGET_KERNEL_SOURCE)/AndroidKernel.mk
-endif
-include $(TARGET_KERNEL_PATH)
-
 # Simply copy the kernel module from where the kernel build system
 # created it to the location where the Android build system expects it.
 # If LOCAL_MODULE_DEBUG_ENABLE is set, strip debug symbols. So that,
