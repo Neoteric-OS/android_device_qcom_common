@@ -79,9 +79,9 @@ ifneq (,$(filter dsprpcd, $(TARGET_COMMON_QTI_COMPONENTS)))
   include $(QCOM_COMMON_PATH)/vendor/dsprpcd/qti-dsprpcd.mk
 endif
 
-ifneq (,$(filter 5.10 5.15, $(TARGET_KERNEL_VERSION)))
-  include $(QCOM_COMMON_PATH)/dlkm/qti-dlkm.mk
-endif
+#ifneq (,$(filter 5.10 5.15, $(TARGET_KERNEL_VERSION)))
+#  include $(QCOM_COMMON_PATH)/dlkm/qti-dlkm.mk
+#endif
 
 ifneq (,$(filter gps, $(TARGET_COMMON_QTI_COMPONENTS)))
   include $(QCOM_COMMON_PATH)/system/gps/qti-gps.mk
