@@ -65,7 +65,7 @@ PRODUCT_PACKAGES += \
     init.qti.write.sh
 
 # If modules are present, load them.  If not, skip.
-ifneq ($(KERNEL_MODULES_OUT),)
+ifeq (true,$(HAS_MODULES))
 PRODUCT_PACKAGES += \
     system_dlkm_modprobe.sh \
     vendor_modprobe.sh
