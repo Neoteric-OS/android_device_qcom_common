@@ -13,8 +13,8 @@
 # limitations under the License.
 
 # Include display HAL makefiles.
--include hardware/qcom/display/config/display-board.mk
--include hardware/qcom/display/config/display-product.mk
+-include hardware/qcom-caf/$(QCOM_HARDWARE_VARIANT)/display/config/display-board.mk
+-include hardware/qcom-caf/$(QCOM_HARDWARE_VARIANT)/display/config/display-product.mk
 
 # Include QTI AIDL Lights HAL
 -include vendor/qcom/opensource/lights/lights-vendor-product.mk

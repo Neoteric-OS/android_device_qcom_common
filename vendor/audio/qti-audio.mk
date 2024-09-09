@@ -13,12 +13,15 @@
 # limitations under the License.
 
 ifeq ($(call is-board-platform-in-list,sm6150),true)
--include $(TOPDIR)vendor/qcom/opensource/audio-hal/primary-hal/configs/msmsteppe/msmsteppe.mk
-# Flag for inheriting audio_vendor_product.mk on >4.19 targets
+-include $(TOPDIR)hardware/qcom-caf/$(QCOM_HARDWARE_VARIANT)/audio/configs/msmsteppe/msmsteppe.mk
+# Flag for inheriting audio_vendor_product.mk on > 5.4 targets
+else ifeq (,$(filter 3.18 4.4 4.9 4.14 4.19 5.4, $(TARGET_KERNEL_VERSION)))
+-include $(TOPDIR)hardware/qcom-caf/$(QCOM_HARDWARE_VARIANT)/audio/primary-hal/configs/audio_vendor_product.mk
+# Flag for inheriting audio_vendor_product.mk on > 4.19 targets
 else ifeq (,$(filter 3.18 4.4 4.9 4.14 4.19, $(TARGET_KERNEL_VERSION)))
--include $(TOPDIR)vendor/qcom/opensource/audio-hal/primary-hal/configs/audio_vendor_product.mk
+-include $(TOPDIR)hardware/qcom-caf/$(QCOM_HARDWARE_VARIANT)/audio/configs/audio_vendor_product.mk
 else
--include $(TOPDIR)vendor/qcom/opensource/audio-hal/primary-hal/configs/$(TARGET_BOARD_PLATFORM)/$(TARGET_BOARD_PLATFORM).mk
+-include $(TOPDIR)hardware/qcom-caf/$(QCOM_HARDWARE_VARIANT)/audio/configs/$(TARGET_BOARD_PLATFORM)/$(TARGET_BOARD_PLATFORM).mk
 endif
 
 # Build Qualcomm common audio overlay

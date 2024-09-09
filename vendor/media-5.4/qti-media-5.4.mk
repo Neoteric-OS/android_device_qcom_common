@@ -18,7 +18,7 @@ PRODUCT_SOONG_NAMESPACES += \
 TARGET_MEDIA_COMPONENT_VARIANT := media-5.4
 
 # Inherit configuration from the HAL.
-$(call inherit-product-if-exists, hardware/qcom/media/product.mk)
+$(call inherit-product-if-exists, hardware/qcom-caf/$(QCOM_HARDWARE_VARIANT)/media/product.mk)
 
 # Enable 64-bit mediaserver
 PRODUCT_VENDOR_PROPERTIES += \
