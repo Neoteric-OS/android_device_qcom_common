@@ -1,0 +1,2 @@
+type vendor_hal_poweroptservice_service, service_manager_type;
+add_service(vendor_hal_poweroptservice_qti, vendor_hal_poweroptservice_service)

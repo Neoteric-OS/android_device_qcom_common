@@ -1,1 +1,2 @@
 vendor.qti.ims.factoryaidlservice.IImsFactory/default                       u:object_r:vendor_hal_factory_aidlservice:s0
+vendor.qti.hardware.power.powermodule.IPowerModule/default     u:object_r:vendor_hal_poweroptservice_service:s0
