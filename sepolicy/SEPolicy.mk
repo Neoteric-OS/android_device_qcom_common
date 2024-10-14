@@ -34,10 +34,8 @@ SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += \
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += \
     $(COMMON_SEPOLICY_PATH)/common/public
 
-# AOSPA-QCOM Specific Required SEPolicy
-ifneq ($(AOSPA_BUILD),)
-    BOARD_VENDOR_SEPOLICY_DIRS += \
-        $(COMMON_SEPOLICY_PATH)/pixel/vendor
-    SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += \
-        $(COMMON_SEPOLICY_PATH)/aospa/private
-endif
+# Neoteric-QCOM Specific Required SEPolicy
+BOARD_VENDOR_SEPOLICY_DIRS += \
+    $(COMMON_SEPOLICY_PATH)/pixel/vendor
+SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += \
+    $(COMMON_SEPOLICY_PATH)/neoteric/private
