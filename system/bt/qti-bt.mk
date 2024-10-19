@@ -19,7 +19,7 @@ $(call inherit-product, vendor/qcom/opensource/commonsys-intf/bluetooth/bt-syste
 endif
 
 # Properties
-ifneq ($(TARGET_USE_QTI_BT_STACK),false)
+ifeq ($(TARGET_USE_QTI_BT_STACK),true)
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
     persist.vendor.bt.a2dp.aac_whitelist=false \
     ro.bluetooth.library_name=libbluetooth_qti.so
