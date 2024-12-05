@@ -32,6 +32,34 @@ endif
 # since they are not used on 8998 and up
 TARGET_MOUNT_POINTS_SYMLINKS ?= false
 
+# Add qtidisplay to soong config namespaces
+SOONG_CONFIG_NAMESPACES += qtidisplay
+
+# Add supported variables to qtidisplay config
+SOONG_CONFIG_qtidisplay += \
+    drmpp \
+    headless \
+    llvmsa \
+    gralloc4 \
+    displayconfig_enabled \
+    udfps \
+    default \
+    var1 \
+    var2 \
+    var3
+
+# Set default values for qtidisplay config
+SOONG_CONFIG_qtidisplay_drmpp ?= false
+SOONG_CONFIG_qtidisplay_headless ?= false
+SOONG_CONFIG_qtidisplay_llvmsa ?= false
+SOONG_CONFIG_qtidisplay_gralloc4 ?= false
+SOONG_CONFIG_qtidisplay_displayconfig_enabled ?= false
+SOONG_CONFIG_qtidisplay_udfps ?= false
+SOONG_CONFIG_qtidisplay_default ?= true
+SOONG_CONFIG_qtidisplay_var1 ?= false
+SOONG_CONFIG_qtidisplay_var2 ?= false
+SOONG_CONFIG_qtidisplay_var3 ?= false
+
 # SEPolicy
 ifneq ($(TARGET_EXCLUDE_QCOM_SEPOLICY),true)
 ifneq ($(call is-board-platform-in-list, msm8937 msm8953 msm8998 sdm660),true)

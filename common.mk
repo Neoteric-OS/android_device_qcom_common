@@ -90,6 +90,20 @@ else
 QCOM_HARDWARE_VARIANT := $(TARGET_BOARD_PLATFORM)
 endif
 
+# Enable DRM PP driver on UM platforms that support it
+ifeq (,$(filter 3.18 4.4, $(TARGET_KERNEL_VERSION)))
+    SOONG_CONFIG_qtidisplay_drmpp := true
+    TARGET_USES_DRM_PP := true
+endif
+
+# Enable Gralloc4 on UM platforms that support it
+ifeq (,$(filter 3.18 4.4 4.9 4.14 4.19, $(TARGET_KERNEL_VERSION)))
+    SOONG_CONFIG_qtidisplay_gralloc4 := true
+endif
+
+# Enable displayconfig on every UM platform
+SOONG_CONFIG_qtidisplay_displayconfig_enabled := true
+
 ifeq (,$(filter 3.18 4.4 4.9 4.14 4.19 5.4, $(TARGET_KERNEL_VERSION)))
     TARGET_USES_QCOM_AUDIO_AR ?= true
 endif
@@ -97,6 +111,10 @@ endif
 # Allow a device to opt-out hardset of PRODUCT_SOONG_NAMESPACES
 QCOM_SOONG_NAMESPACE ?= hardware/qcom-caf/$(QCOM_HARDWARE_VARIANT)
 PRODUCT_SOONG_NAMESPACES += $(QCOM_SOONG_NAMESPACE)
+
+PRODUCT_SOONG_NAMESPACES += \
+    vendor/qcom/opensource/commonsys/display \
+    vendor/qcom/opensource/commonsys-intf/display
 
 ifeq ($(call is-board-platform-in-list,$(QCOM_BOARD_PLATFORMS)),true)
 ifeq ($(TARGET_FWK_SUPPORTS_FULL_VALUEADDS),true)
