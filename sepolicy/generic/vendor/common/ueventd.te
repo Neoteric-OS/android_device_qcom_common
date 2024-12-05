@@ -1,1 +1,0 @@
-allow ueventd vendor_persist_wcnss_service_file:dir search;

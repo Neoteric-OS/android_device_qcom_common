@@ -1,11 +1,2 @@
 # Allow init.aospa.perf.rc to read CPUSets
 allow vendor_init cgroup:file r_file_perms;
-
-# Allow build.prop to set vendor.all.modules.ready
-set_prop(vendor_init, vendor_modprobe_prop)
-
-#Access rcs service
-set_prop(vendor_init, vendor_persist_rcs_qti_prop)
-
-# Allow changing swap settings
-allow vendor_init vendor_proc_swappiness:file rw_file_perms;

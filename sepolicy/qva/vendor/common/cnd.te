@@ -1,2 +1,0 @@
-# allow vendor_cnd to read wifi_hal_prop
-get_prop(vendor_cnd, wifi_hal_prop)

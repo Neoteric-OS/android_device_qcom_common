@@ -1,2 +1,0 @@
-# Allow search of location vendor data files
-allow vendor_tlocd vendor_location_data_file:dir search;

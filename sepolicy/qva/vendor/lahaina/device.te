@@ -1,2 +1,0 @@
-#aidirector audio device
-type vendor_aid_audio_device, dev_type;

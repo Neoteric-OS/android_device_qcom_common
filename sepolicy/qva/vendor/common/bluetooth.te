@@ -1,1 +1,0 @@
-allow bluetooth mediametrics_service:service_manager find;
