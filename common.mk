@@ -135,6 +135,11 @@ PRODUCT_MAX_PAGE_SIZE_SUPPORTED ?= 4096
 # Components
 include $(QCOM_COMMON_PATH)/components.mk
 
+# Configstore
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.capabilityconfigstore@1.0 \
+    vendor.qti.hardware.capabilityconfigstore@1.0.vendor
+
 # Filesystem
 TARGET_FS_CONFIG_GEN += $(QCOM_COMMON_PATH)/config.fs
 
