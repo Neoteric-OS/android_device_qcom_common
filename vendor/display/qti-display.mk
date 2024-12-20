@@ -50,7 +50,7 @@ endif
 # These are already set on 5.4+
 ifneq (,$(filter 3.18 4.4 4.9 4.14 4.19, $(TARGET_KERNEL_VERSION)))
 PRODUCT_VENDOR_PROPERTIES += \
-    debug.sf.disable_client_composition_cache=1
+    debug.sf.disable_client_composition_cache=0
 endif
 
 # Properties for <4.19 targets
