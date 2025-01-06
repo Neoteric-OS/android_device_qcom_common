@@ -72,12 +72,6 @@ PRODUCT_VENDOR_PROPERTIES += \
     debug.sf.latch_unsignaled=1
 endif
 
-# Copy feature_enabler rc only for lahaina on 5.4
-ifeq ($(call is-board-platform-in-list, lahaina),true)
-PRODUCT_COPY_FILES += \
-    device/qcom/common/vendor/display/5.4/feature_enabler_client.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/feature_enabler_client.rc
-endif
-
 # Disable custom content metadata region on <5.15 targets
 ifneq (,$(filter 3.18 4.4 4.9 4.14 4.19 5.4 5.10, $(TARGET_KERNEL_VERSION)))
 TARGET_GRALLOC_HANDLE_HAS_NO_CUSTOM_CONTENT_MD_RESERVED_SIZE := true
