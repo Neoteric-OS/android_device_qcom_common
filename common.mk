@@ -172,6 +172,11 @@ PRODUCT_COPY_FILES += \
     device/qcom/qssi/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml \
     device/qcom/qssi/qti_whitelist_system_ext.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/sysconfig/qti_whitelist_system_ext.xml
 
+# QSPA
+PRODUCT_PACKAGES += \
+    qspa_system.rc \
+    qspa_default.rc
+
 # Thermal
 ifeq ($(shell expr $(TARGET_KERNEL_VERSION) \<= 5.4), 1)
     $(call soong_config_set,qti_thermal,netlink,false)
