@@ -1,4 +1,3 @@
-system_ext/app/aptxacu/aptxacu.apk
 system_ext/bin/aptxalsOverlayCreateProject.sh
 system_ext/etc/permissions/privapp-permissions-aptxals.xml
 system_ext/etc/permissions/privapp-permissions-aptxui.xml
