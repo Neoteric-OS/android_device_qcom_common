@@ -1,0 +1,6 @@
+# All unpinned blobs below are extracted from aurora OS1.0.12.0.UNAEUXM
+vendor/bin/vendor.qti.qspmhal-service
+vendor/etc/init/vendor.qti.qspmhal-service.rc
+vendor/etc/seccomp_policy/qspm.policy
+vendor/etc/vintf/manifest/vendor.qti.qspmhal-service.xml
+vendor/lib64/vendor.qti.qspmhal-impl.so

@@ -14,9 +14,8 @@ fi
 
 set -e
 
-export COMPONENT=perf
+export COMPONENT=qspm-6.1
 export VENDOR=qcom/common/vendor
 export VENDOR_COMMON=${VENDOR}
 
-"../extract-files.sh" "$@"
-"../qspm-6.1/extract-files.sh" "$@"
+"../setup-makefiles.sh" "$@"
