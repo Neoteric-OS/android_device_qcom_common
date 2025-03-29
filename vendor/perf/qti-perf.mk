@@ -72,5 +72,9 @@ PRODUCT_VENDOR_PROPERTIES += \
     ro.vendor.beluga.t=0x240
 endif
 
+# Disable excessive logging
+PRODUCT_VENDOR_PROPERTIES += \
+    log.tag.vendor.qti.hardware.servicetrackeraidl-service=E
+
 # Get non-open-source specific aspects
 $(call inherit-product-if-exists, vendor/qcom/common/vendor/perf/perf-vendor.mk)
