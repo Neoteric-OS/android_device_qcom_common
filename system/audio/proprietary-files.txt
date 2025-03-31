@@ -22,4 +22,4 @@ system_ext/lib64/libqxrsplitauxservice.qti.so
 system_ext/lib64/libvr_amb_engine.so
 system_ext/lib64/libvr_object_engine.so
 system_ext/lib64/vendor.qti.hardware.ListenSoundModel@1.0.so
-system_ext/lib64/vendor.qti.hardware.qxr-V1-ndk_platform.so
+system_ext/lib64/vendor.qti.hardware.qxr-V1-ndk.so
