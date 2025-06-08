@@ -30,18 +30,30 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #=============================================================================
 import /vendor/etc/init/hw/init.qti.kernel.test.rc
+import /vendor/etc/init/hw/init.qti.kernel.target.rc
+import /vendor/etc/init/hw/init.qti.kernel.legacy.rc
 
-on early-init && property:ro.vendor.qti.load_dlkm.service=native
-    start load_dlkm
+service memory-init-boot /vendor/bin/sh /vendor/bin/init.kernel.init_boot-memory.sh
+    class core
+    user root
+    group root
+    disabled
+    oneshot
 
-on early-init && property:ro.vendor.qti.load_dlkm.service=""
-    exec_start gki.modprobe
-    start vendor.modprobe
+service memory-post-boot /vendor/bin/sh /vendor/bin/init.kernel.post_boot-memory.sh
+    class core
+    user root
+    group root
+    disabled
+    oneshot
 
 on early-init
     # Set the console loglevel to < KERN_WARN
     # Set the default message loglevel to KERN_INFO
     write /proc/sys/kernel/printk "4 6 1 7"
+
+    exec_start gki.modprobe
+    start vendor.modprobe
 
     # Mount tracefs in /sys/kernel/tracing as CONFIG_DEBUG_FS might be
     # disabled and /sys/kernel/debug/tracing might not be available
@@ -55,9 +67,10 @@ on early-init
 
     write /proc/sys/kernel/firmware_config/force_sysfs_fallback 1
 
-on post-fs
-    wait_for_prop vendor.all.modules.ready 1
+on init
+    start memory-init-boot
 
+on post-fs
     # Create cgroup mount point for memory
     mkdir /sys/fs/cgroup/memory/bg 0750 root system
     write /sys/fs/cgroup/memory/bg/memory.swappiness 140
@@ -79,9 +92,6 @@ on post-fs
 
 on early-boot
     # Allow subsystem (modem etc) debugging
-    start vendor.pd_mapper
-    exec_background u:r:vendor_qti_init_shell_bg:s0 -- /vendor/bin/init.qti.write.sh /sys/kernel/boot_adsp/boot 1
-    exec_background u:r:vendor_qti_init_shell_bg:s0 -- /vendor/bin/init.qti.write.sh /sys/kernel/boot_cdsp/boot 1
     exec_background u:r:vendor_qti_init_shell_bg:s0 -- /vendor/bin/init.qti.write.sh /sys/devices/virtual/cvp/cvp/boot 1
 
 on boot
@@ -158,6 +168,10 @@ on property:sys.boot_completed=1
     write /proc/sys/vm/page-cluster 0
     start kernel-boot
     start kernel-post-boot
+    start memory-post-boot
+
+on property:vendor.pasr.enabled=false
+    stop pasr-hal
 
 on charger
     start kernel-post-boot
@@ -178,15 +192,6 @@ service gki.modprobe /vendor/bin/system_dlkm_modprobe.sh
     oneshot
 
 service vendor.modprobe /vendor/bin/vendor_modprobe.sh
-    class main
-    user root
-    group root system
-    disabled
-    stdio_to_kmsg
-    seclabel u:r:vendor_modprobe:s0
-    oneshot
-
-service load_dlkm /vendor/bin/load_dlkm
     class main
     user root
     group root system
