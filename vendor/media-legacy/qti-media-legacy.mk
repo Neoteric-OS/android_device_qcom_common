@@ -12,9 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-PRODUCT_SOONG_NAMESPACES += \
-    device/qcom/common/vendor/media-legacy
-
 TARGET_MEDIA_COMPONENT_VARIANT := media-legacy
 
 ifneq ($(call is-board-platform-in-list, sm6150 msmnile kona),true)
