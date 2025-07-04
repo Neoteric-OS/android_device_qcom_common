@@ -21,8 +21,7 @@ endif
 # Properties
 ifeq ($(TARGET_USE_QTI_BT_STACK),true)
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
-    persist.vendor.bt.a2dp.aac_whitelist=false \
-    ro.bluetooth.library_name=libbluetooth_qti.so
+    persist.vendor.bt.a2dp.aac_whitelist=false
 endif
 
 PRODUCT_PACKAGES += \
