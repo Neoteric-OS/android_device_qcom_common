@@ -29,6 +29,7 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth.audio-impl \
     android.hardware.bluetooth.audio-V3-ndk.vendor \
     android.hardware.bluetooth.audio-V4-ndk.vendor \
+    android.hardware.bluetooth.audio-V5-ndk.vendor \
     vendor.qti.hardware.bluetooth.audio-V1-ndk.vendor
 else
 PRODUCT_PACKAGES += \
