@@ -1,3 +1,5 @@
+# LA.QSSI.16.0-23700-qssi.0 (Xiaomi 15)
+
 system_ext/app/QCC/QCC.apk
 system_ext/bin/qccsyshal@1.2-service
 system_ext/bin/qccsyshal_aidl-service
