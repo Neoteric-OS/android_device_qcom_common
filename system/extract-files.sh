@@ -25,6 +25,8 @@ if [ ! -f "${HELPER}" ]; then
 fi
 source "${HELPER}"
 
+ZIPALIGN="${ANDROID_ROOT}/out/host/linux-x86/bin/zipalign"
+
 # Default to sanitizing the vendor folder before extraction
 CLEAN_VENDOR=true
 
@@ -64,7 +66,7 @@ function blob_fixup() {
         system/framework/QXPerformance.jar)
             [ "$2" = "" ] && return 0
             mv "${2}" "${2}.tmp"
-            zipalign -p -f 4 "${2}.tmp" "${2}"
+            "${ZIPALIGN}" -p -f 4 "${2}.tmp" "${2}"
             rm "${2}.tmp"
             ;;
 
