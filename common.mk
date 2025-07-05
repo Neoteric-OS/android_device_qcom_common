@@ -18,6 +18,17 @@ ifeq ($(TARGET_BOARD_PLATFORM),)
 $(error "TARGET_BOARD_PLATFORM is not defined yet, please define in your device makefile so it's accessible to QCOM common.")
 endif
 
+# QCV: initialize property - used to detect framework type
+ifeq ($(TARGET_FWK_SUPPORTS_FULL_VALUEADDS), true)
+  PRODUCT_SYSTEM_PROPERTIES += \
+        ro.vendor.qti.va_aosp.support=1
+
+  PRODUCT_ODM_PROPERTIES += \
+        ro.vendor.qti.va_odm.support=1
+
+  $(warning "Compile using modified AOSP tree supporting full vendor value-adds")
+endif
+
 # Board defs
 include $(QCOM_COMMON_PATH)/defs.mk
 
