@@ -82,7 +82,7 @@ system_ext/framework/com.quicinc.cne.constants-V2.1-java.jar
 system_ext/framework/datachannellib.jar
 system_ext/framework/dpmapi.jar
 system_ext/framework/qcrilhook.jar
-system_ext/framework/qti-telephony-common.jar
+system_ext/framework/qti-telephony-common.jar|3cb6d562fa5463459cffa50399d714c12bb13bf7
 system_ext/framework/vendor.qti.data.dmapconsent-V1-java.jar
 system_ext/framework/vendor.qti.data.factory-V1.0-java.jar
 system_ext/framework/vendor.qti.data.factory-V2.0-java.jar
@@ -333,7 +333,7 @@ system_ext/lib64/vendor.qti.latency@2.2.so
 system_ext/lib64/vendor.qti.latency@2.3.so
 system_ext/lib64/vendor.qti.latencyaidlservice-V1-ndk.so
 system_ext/lib64/vendor.qti.mstatservice@1.0.so
-system_ext/priv-app/QtiTelephony/QtiTelephony.apk
+system_ext/priv-app/QtiTelephony/QtiTelephony.apk|0cbd10b11855e71cc1149960943d69385325c4c1
 system_ext/priv-app/dpmserviceapp/dpmserviceapp.apk
 system_ext/priv-app/ims/ims.apk
 system_ext/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
