@@ -4,9 +4,9 @@ product/app/datastatusnotification/datastatusnotification.apk
 product/app/remoteSimLockAuthentication/remoteSimLockAuthentication.apk
 product/app/remotesimlockservice/remotesimlockservice.apk
 product/app/uimgbaservice/uimgbaservice.apk
-product/app/uimlpaservice/uimlpaservice.apk
 product/app/uimremoteclient/uimremoteclient.apk
 product/app/uimremoteserver/uimremoteserver.apk
+product/etc/permissions/lpa.xml
 product/etc/permissions/RemoteSimlock.xml
 product/etc/permissions/RemoteSimlockManager.xml
 product/etc/permissions/telephony_product_privapp-permissions-qti.xml
@@ -32,7 +32,6 @@ system_ext/app/AtFwd2/AtFwd2.apk
 system_ext/app/DeviceInfo/DeviceInfo.apk
 system_ext/app/DynamicDDSService/DynamicDDSService.apk
 system_ext/app/ImsDataChannelService/ImsDataChannelService.apk
-system_ext/app/ImsRcsService/ImsRcsService.apk
 system_ext/app/QtiTelephonyService/QtiTelephonyService.apk
 system_ext/app/SimContact/SimContact.apk
 system_ext/app/uceShimService/uceShimService.apk
@@ -42,7 +41,6 @@ system_ext/bin/diag_mdlog_system
 system_ext/bin/dpmd
 system_ext/bin/tcmd
 system_ext/bin/test_diag_system
-system_ext/etc/cdma_call_conf.xml
 system_ext/etc/dpm/dpm.conf
 system_ext/etc/init/dpmd.rc
 system_ext/etc/init/tcmd.rc
@@ -61,7 +59,6 @@ system_ext/etc/permissions/vendor.qti.ims.rcsservice.xml
 system_ext/etc/permissions/vendor.qti.imsdatachannel.xml
 system_ext/etc/permissions/vendor.qti.imsdcservice.xml
 system_ext/etc/seccomp_policy/tcmd.policy
-system_ext/etc/spn-conf.xml
 system_ext/etc/sysconfig/qti_telephony_system_packages_config.xml
 system_ext/etc/sysconfig/qti_whitelist_system_ext.xml
 system_ext/etc/sysconfig/whitelist_com.qualcomm.qti.uceShimService.xml
@@ -82,7 +79,7 @@ system_ext/framework/com.quicinc.cne.constants-V2.1-java.jar
 system_ext/framework/datachannellib.jar
 system_ext/framework/dpmapi.jar
 system_ext/framework/qcrilhook.jar
-system_ext/framework/qti-telephony-common.jar|3cb6d562fa5463459cffa50399d714c12bb13bf7
+system_ext/framework/qti-telephony-common.jar
 system_ext/framework/vendor.qti.data.dmapconsent-V1-java.jar
 system_ext/framework/vendor.qti.data.factory-V1.0-java.jar
 system_ext/framework/vendor.qti.data.factory-V2.0-java.jar
@@ -143,6 +140,7 @@ system_ext/framework/vendor.qti.ims.connection-V1.0-java.jar
 system_ext/framework/vendor.qti.ims.connectionaidlservice-V1-java.jar
 system_ext/framework/vendor.qti.ims.datachannelservice-V1-java.jar
 system_ext/framework/vendor.qti.ims.datachannelservice-V2-java.jar
+system_ext/framework/vendor.qti.ims.datachannelservice-V3-java.jar
 system_ext/framework/vendor.qti.ims.factory-V1.0-java.jar
 system_ext/framework/vendor.qti.ims.factory-V1.1-java.jar
 system_ext/framework/vendor.qti.ims.factory-V2.0-java.jar
@@ -202,6 +200,7 @@ system_ext/lib64/libimscamera_jni.so;SYMLINK=system_ext/priv-app/ims/lib/arm64/l
 system_ext/lib64/libimsmedia_jni.so;SYMLINK=system_ext/priv-app/ims/lib/arm64/libimsmedia_jni.so
 system_ext/lib64/libjnihelpers.so
 system_ext/lib64/libmink-sock-native-api.so
+system_ext/lib64/libminkipcbinder_system.so
 system_ext/lib64/libminksocket_system.so
 system_ext/lib64/libmsp.so
 system_ext/lib64/libmwqemiptablemgr.so
@@ -260,6 +259,7 @@ system_ext/lib64/vendor.qti.hardware.dpmservice@1.1.so
 system_ext/lib64/vendor.qti.hardware.embmssl@1.0.so
 system_ext/lib64/vendor.qti.hardware.embmssl@1.1.so
 system_ext/lib64/vendor.qti.hardware.embmsslaidl-V2-ndk.so
+system_ext/lib64/vendor.qti.hardware.minkipcbinder-V1-ndk.so
 system_ext/lib64/vendor.qti.hardware.mwqemadapter@1.0.so
 system_ext/lib64/vendor.qti.hardware.mwqemadapteraidlservice-V1-ndk.so
 system_ext/lib64/vendor.qti.hardware.radio.am@1.0.so
@@ -304,6 +304,7 @@ system_ext/lib64/vendor.qti.ims.connection@1.0.so
 system_ext/lib64/vendor.qti.ims.connectionaidlservice-V1-ndk.so
 system_ext/lib64/vendor.qti.ims.datachannelservice-V1-ndk.so
 system_ext/lib64/vendor.qti.ims.datachannelservice-V2-ndk.so
+system_ext/lib64/vendor.qti.ims.datachannelservice-V3-ndk.so
 system_ext/lib64/vendor.qti.ims.factory@1.0.so
 system_ext/lib64/vendor.qti.ims.factory@1.1.so
 system_ext/lib64/vendor.qti.ims.factory@2.0.so
@@ -333,7 +334,7 @@ system_ext/lib64/vendor.qti.latency@2.2.so
 system_ext/lib64/vendor.qti.latency@2.3.so
 system_ext/lib64/vendor.qti.latencyaidlservice-V1-ndk.so
 system_ext/lib64/vendor.qti.mstatservice@1.0.so
-system_ext/priv-app/QtiTelephony/QtiTelephony.apk|0cbd10b11855e71cc1149960943d69385325c4c1
+system_ext/priv-app/QtiTelephony/QtiTelephony.apk
 system_ext/priv-app/dpmserviceapp/dpmserviceapp.apk
 system_ext/priv-app/ims/ims.apk
 system_ext/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
