@@ -93,7 +93,7 @@ TARGET_KERNEL_VERSION ?= 4.9
 QCOM_HARDWARE_VARIANT := sdm845
 else ifeq ($(call is-board-platform-in-list,$(4_4_FAMILY)),true)
 TARGET_KERNEL_VERSION ?= 4.4
-QCOM_HARDWARE_VARIANT := msm8998
+QCOM_HARDWARE_VARIANT := sdm660
 else ifeq ($(call is-board-platform-in-list,$(3_18_FAMILY)),true)
 TARGET_KERNEL_VERSION ?= 3.18
 QCOM_HARDWARE_VARIANT := msm8996
