@@ -95,7 +95,13 @@
         <item>zh,GBK</item>
     </string-array>
 
-    <integer translatable="false" name="config_wifiDisableReasonByWrongPasswordThreshold"> 2 </integer>
+    <!-- Allow framework to auto recover from connection failures when same SSID BSSes are configured
+         with different password -->
+    <integer translatable="false" name="config_wifiDisableReasonByWrongPasswordThreshold">2</integer>
+
+    <!-- Allow framework to auto recover from connection failures when AP replied assoc reject with
+         reason code 17. i.e. iot issue see when STA auth with PMKSA -->
+    <integer translatable="false" name="config_wifiBssidBlocklistMonitorApUnableToHandleNewStaThreshold">3</integer>
 
     <!-- Wifi driver supports IEEE80211AX for softap -->
     <bool translatable="false" name="config_wifiSoftapIeee80211axSupported">true</bool>
