@@ -4,7 +4,6 @@ product/app/datastatusnotification/datastatusnotification.apk
 product/app/remoteSimLockAuthentication/remoteSimLockAuthentication.apk
 product/app/remotesimlockservice/remotesimlockservice.apk
 product/app/uimgbaservice/uimgbaservice.apk
-product/app/uimlpaservice/uimlpaservice.apk
 product/app/uimremoteclient/uimremoteclient.apk
 product/app/uimremoteserver/uimremoteserver.apk
 product/etc/permissions/lpa.xml
@@ -20,7 +19,6 @@ product/etc/permissions/vendor.qti.hardware.data.connectionaidl-V1-java.xml
 product/framework/remotesimlockmanagerlibrary.jar
 product/framework/uimgbalibrary.jar
 product/framework/uimgbamanagerlibrary.jar
-product/framework/uimlpalibrary.jar
 product/framework/uimremoteclientlibrary.jar
 product/framework/uimremoteserverlibrary.jar
 product/framework/uimremotesimlocklibrary.jar
@@ -34,7 +32,6 @@ system_ext/app/AtFwd2/AtFwd2.apk
 system_ext/app/DeviceInfo/DeviceInfo.apk
 system_ext/app/DynamicDDSService/DynamicDDSService.apk
 system_ext/app/ImsDataChannelService/ImsDataChannelService.apk
-system_ext/app/ImsRcsService/ImsRcsService.apk
 system_ext/app/QtiTelephonyService/QtiTelephonyService.apk
 system_ext/app/SimContact/SimContact.apk
 system_ext/app/uceShimService/uceShimService.apk
@@ -84,7 +81,6 @@ system_ext/framework/dpmapi.jar
 system_ext/framework/qcrilhook.jar
 system_ext/framework/qti-telephony-common.jar
 system_ext/framework/vendor.qti.data.dmapconsent-V1-java.jar
-system_ext/framework/vendor.qti.data.dmapconsent-V2-java.jar
 system_ext/framework/vendor.qti.data.factory-V1.0-java.jar
 system_ext/framework/vendor.qti.data.factory-V2.0-java.jar
 system_ext/framework/vendor.qti.data.factory-V2.1-java.jar
@@ -96,7 +92,6 @@ system_ext/framework/vendor.qti.data.factory-V2.6-java.jar
 system_ext/framework/vendor.qti.data.factory-V2.7-java.jar
 system_ext/framework/vendor.qti.data.factory-V2.8-java.jar
 system_ext/framework/vendor.qti.data.factoryservice-V1-java.jar
-system_ext/framework/vendor.qti.data.factoryservice-V2-java.jar
 system_ext/framework/vendor.qti.data.mwqem-V1.0-java.jar
 system_ext/framework/vendor.qti.data.mwqemaidlservice-V1-java.jar
 system_ext/framework/vendor.qti.data.slm-V1.0-java.jar
@@ -110,7 +105,6 @@ system_ext/framework/vendor.qti.hardware.data.cne.internal.server-V1.3-java.jar
 system_ext/framework/vendor.qti.hardware.data.cneaidlservice.internal.api-V1-java.jar
 system_ext/framework/vendor.qti.hardware.data.cneaidlservice.internal.constants-V1-java.jar
 system_ext/framework/vendor.qti.hardware.data.cneaidlservice.internal.server-V1-java.jar
-system_ext/framework/vendor.qti.hardware.data.cneaidlservice.internal.server-V2-java.jar
 system_ext/framework/vendor.qti.hardware.data.connection-V1.0-java.jar
 system_ext/framework/vendor.qti.hardware.data.connection-V1.1-java.jar
 system_ext/framework/vendor.qti.hardware.data.connectionfactory-V1-java.jar
@@ -195,7 +189,6 @@ system_ext/lib64/lib-imsvtextutils.so
 system_ext/lib64/lib-imsvtutils.so
 system_ext/lib64/libdiag_system.qti.so
 system_ext/lib64/libdiag_system.so
-system_ext/lib64/libdiagatbparser_system.so
 system_ext/lib64/libdpmctmgr.so
 system_ext/lib64/libdpmfdmgr.so
 system_ext/lib64/libdpmframework.so
@@ -216,7 +209,6 @@ system_ext/lib64/libqmi_encdec_system.so
 system_ext/lib64/libtrigger-handler.so
 system_ext/lib64/libupdateprof.qti.so
 system_ext/lib64/vendor.qti.data.dmapconsent-V1-ndk.so
-system_ext/lib64/vendor.qti.data.dmapconsent-V2-ndk.so
 system_ext/lib64/vendor.qti.data.factory@1.0.so
 system_ext/lib64/vendor.qti.data.factory@2.0.so
 system_ext/lib64/vendor.qti.data.factory@2.1.so
@@ -228,7 +220,6 @@ system_ext/lib64/vendor.qti.data.factory@2.6.so
 system_ext/lib64/vendor.qti.data.factory@2.7.so
 system_ext/lib64/vendor.qti.data.factory@2.8.so
 system_ext/lib64/vendor.qti.data.factoryservice-V1-ndk.so
-system_ext/lib64/vendor.qti.data.factoryservice-V2-ndk.so
 system_ext/lib64/vendor.qti.data.mwqem@1.0.so
 system_ext/lib64/vendor.qti.data.mwqemaidlservice-V1-ndk.so
 system_ext/lib64/vendor.qti.data.slm@1.0.so
@@ -243,7 +234,6 @@ system_ext/lib64/vendor.qti.hardware.data.cne.internal.server@1.3.so
 system_ext/lib64/vendor.qti.hardware.data.cneaidlservice.internal.api-V1-ndk.so
 system_ext/lib64/vendor.qti.hardware.data.cneaidlservice.internal.constants-V1-ndk.so
 system_ext/lib64/vendor.qti.hardware.data.cneaidlservice.internal.server-V1-ndk.so
-system_ext/lib64/vendor.qti.hardware.data.cneaidlservice.internal.server-V2-ndk.so
 system_ext/lib64/vendor.qti.hardware.data.connection@1.0.so
 system_ext/lib64/vendor.qti.hardware.data.connection@1.1.so
 system_ext/lib64/vendor.qti.hardware.data.connectionfactory-V1-ndk.so
@@ -336,7 +326,6 @@ system_ext/lib64/vendor.qti.ims.rcsuce@1.2.so
 system_ext/lib64/vendor.qti.ims.rcsuceaidlservice-V1-ndk.so
 system_ext/lib64/vendor.qti.ims.uceaidlservice-V1-ndk.so
 system_ext/lib64/vendor.qti.ImsRtpService-V1-ndk.so
-system_ext/lib64/vendor.qti.ImsRtpService-V2-ndk.so
 system_ext/lib64/vendor.qti.imsrtpservice@3.0.so
 system_ext/lib64/vendor.qti.imsrtpservice@3.1.so
 system_ext/lib64/vendor.qti.latency@2.0.so
