@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- List of regexpressions describing the interface (if any) that represent tetherable
+         NCM interfaces.  If the device doesn't want to support tethering over NCM this should
+         be empty. -->
+    <string-array translatable="false" name="config_tether_ncm_regexs">
+        <item>"ncm\\d"</item>
+    </string-array>
+</resources>

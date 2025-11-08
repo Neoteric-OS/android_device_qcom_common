@@ -45,6 +45,12 @@
     -->
     <bool name = "uwb_disabled_until_first_toggle">true</bool>
 
+    <!-- Whether FIRa CCC capability UCI Specification applied or not.
+     If enabled, FIRa CCC capability UCI Specification used -->
+     <bool name = "fira_supported_extension_ccc">true</bool>
+
+    <!-- ===== End of UWB stack overlay definitions ===== -->
+    <!-- ===== Start of ranging stack overlay definitions ===== -->
 
     <!-- Enable wifi rtt Ranging for proximity -->
     <string-array name="technology_preference_list">
