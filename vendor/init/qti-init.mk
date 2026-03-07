@@ -27,7 +27,7 @@ PRODUCT_PACKAGES += \
 
 ifneq (,$(filter 4.4 4.9 4.14 4.19 5.4, $(TARGET_KERNEL_VERSION)))
 PRODUCT_PACKAGES += \
-    init.qcom.legacy_audioservice.rc
+    init.qcom.legacy_audioservice.rc \
     init.qcom.legacy_qrtr-ns.rc
 endif
 else
