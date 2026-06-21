@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <!-- Allow workloadclassifier to start background services when the app
+         is idle. WLCReceiver spawns a thread from onReceive() which loses the
+         transient background-start privilege before calling startService(). -->
+    <allow-in-power-save package="com.qualcomm.qti.workloadclassifier" />
+</config>
