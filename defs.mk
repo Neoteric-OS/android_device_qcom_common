@@ -25,10 +25,14 @@ QCOM_BOARD_PLATFORMS += \
     sdm660 \
     sdm710 \
     sdm845 \
+    sun \
     taro \
     volcano
 
 # Kernel Families
+6_6_FAMILY := \
+    sun
+
 6_1_FAMILY := \
     blair \
     pineapple \
