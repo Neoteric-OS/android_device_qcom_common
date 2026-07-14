@@ -45,6 +45,8 @@ PRODUCT_PACKAGES += \
     android.hardware.thermal@2.0.vendor \
     android.hardware.thermal-V1-ndk.vendor \
     libavservices_minijail.vendor \
+    libprotobuf-cpp-full-21.12-vendorcompat \
+    libprotobuf-cpp-lite-21.12-vendorcompat \
     libpsi.vendor \
     libtflite \
     vendor.qti.hardware.servicetracker@1.1.vendor \
