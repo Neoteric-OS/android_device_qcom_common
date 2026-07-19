@@ -19,6 +19,7 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_PACKAGES += \
     CarrierConfigResCommon_Sys \
     FrameworksResCommon_Sys \
+    FrameworksResNonModem_Sys \
     NfcResCommon_Sys \
     SettingsResCommon_Sys \
     SystemUIResCommon_Sys \

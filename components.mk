@@ -125,6 +125,7 @@ ifneq (,$(filter media, $(TARGET_COMMON_QTI_COMPONENTS)))
 endif
 
 ifneq (,$(filter nfc, $(TARGET_COMMON_QTI_COMPONENTS)))
+  include $(QCOM_COMMON_PATH)/system/nfc/qti-nfc.mk
   include $(QCOM_COMMON_PATH)/vendor/nfc/qti-nfc.mk
 endif
 

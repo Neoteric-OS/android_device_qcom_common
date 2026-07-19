@@ -77,7 +77,13 @@ function blob_fixup() {
 
         system_ext/lib64/libqxrsplitauxservice.qti.so)
             [ "$2" = "" ] && return 0
-            "${PATCHELF}" --replace-needed "android.media.audio.common.types-V3-cpp.so" "android.media.audio.common.types-V4-cpp.so" "${2}"
+            "${PATCHELF}" --replace-needed "android.media.audio.common.types-V3-cpp.so" "android.media.audio.common.types-V5-cpp.so" "${2}"
+            "${PATCHELF}" --replace-needed "android.media.audio.common.types-V4-cpp.so" "android.media.audio.common.types-V5-cpp.so" "${2}"
+            ;;
+
+        system_ext/lib64/libmink-sock-native-api.so)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF}" --remove-needed "libminksocket_system.so" "${2}"
             ;;
 
         *)
