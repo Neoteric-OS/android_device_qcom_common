@@ -8,6 +8,8 @@ else ifeq ($(call is-board-platform-in-list, $(5_15_FAMILY)), true)
     include device/qcom/sepolicy_vndr/sm8550/SEPolicy.mk
 else ifeq ($(call is-board-platform-in-list, $(6_1_FAMILY)), true)
     include device/qcom/sepolicy_vndr/sm8650/SEPolicy.mk
+else ifeq ($(call is-board-platform-in-list, $(6_6_FAMILY)), true)
+    include device/qcom/sepolicy_vndr/sm8750/SEPolicy.mk
 endif
 
 -include device/neoteric/sepolicy/qcom/sepolicy.mk
