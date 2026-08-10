@@ -30,7 +30,11 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth.audio-V3-ndk.vendor \
     android.hardware.bluetooth.audio-V4-ndk.vendor \
     android.hardware.bluetooth.audio-V5-ndk.vendor \
-    vendor.qti.hardware.bluetooth.audio-V1-ndk.vendor
+    android.hardware.bluetooth.finder-V1-ndk.vendor \
+    android.hardware.bluetooth.lmp_event-V1-ndk.vendor \
+    android.hardware.bluetooth-V1-ndk.vendor \
+    vendor.qti.hardware.bluetooth.audio-V1-ndk.vendor \
+    vendor.qti.hardware.fm-V1-ndk.vendor
 else
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth.audio@2.1-impl
