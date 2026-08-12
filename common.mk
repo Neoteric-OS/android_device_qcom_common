@@ -70,7 +70,10 @@ ifeq ($(TARGET_FWK_SUPPORTS_FULL_VALUEADDS),true)
 include vendor/qcom/opensource/core-utils/build/utils.mk
 endif
 
-ifeq ($(call is-board-platform-in-list,$(6_6_FAMILY)),true)
+ifeq ($(call is-board-platform-in-list,$(6_12_FAMILY)),true)
+TARGET_KERNEL_VERSION ?= 6.12
+QCOM_HARDWARE_VARIANT := sm8850
+else ifeq ($(call is-board-platform-in-list,$(6_6_FAMILY)),true)
 TARGET_KERNEL_VERSION ?= 6.6
 QCOM_HARDWARE_VARIANT := sm8750
 else ifeq ($(call is-board-platform-in-list,$(6_1_FAMILY)),true)

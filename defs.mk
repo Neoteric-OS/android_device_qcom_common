@@ -8,6 +8,7 @@ QCOM_BOARD_PLATFORMS += \
     atoll \
     bengal \
     blair \
+    canoe \
     crow \
     holi \
     kona \
@@ -30,6 +31,9 @@ QCOM_BOARD_PLATFORMS += \
     volcano
 
 # Kernel Families
+6_12_FAMILY := \
+    canoe
+
 6_6_FAMILY := \
     sun
 
