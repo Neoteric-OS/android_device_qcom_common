@@ -1,7 +1,15 @@
-# All unpinned blobs below are extracted from aurora OS1.0.12.0.UNAEUXM
+# Framework permissions, dropped by sun - from aurora OS1.0.12.0.UNAEUXM
+system/etc/permissions/com.qualcomm.qti.Performance.xml|7976f2fd46b8d07814310cc957a70f829bdd6932
+system/etc/permissions/com.qualcomm.qti.UxPerformance.xml|d92749d80c5d956db8251b08ea6388d3f107a32c
 
-system_ext/app/workloadclassifier/workloadclassifier.apk
+# All unpinned blobs below are extracted from xuanyuan OS3.0.303.0.WOAEUXM
+system/framework/QPerformance.jar
+system/framework/QXPerformance.jar
+system/framework/UxPerformance.jar
+system/lib64/vendor.qti.MemHal-V1-ndk.so
+system/lib64/vendor.qti.hardware.perf2-V1-ndk.so
 system_ext/app/PowerSaveMode/PowerSaveMode.apk
+system_ext/app/workloadclassifier/workloadclassifier.apk
 system_ext/bin/perfservice
 system_ext/bin/qspmsvc
 system_ext/etc/init/perfservice.rc
@@ -15,32 +23,25 @@ system_ext/lib64/libdolphin_ext.so
 system_ext/lib64/libjpegdecoder_ext.so
 system_ext/lib64/libjpegencoder_ext.so
 system_ext/lib64/liblayerext.qti.so
-system_ext/lib64/libpenguin_impl.so
 system_ext/lib64/libpenguin.so
+system_ext/lib64/libpenguin_impl.so
 system_ext/lib64/libqape.qti.so
 system_ext/lib64/libqspm-mem-utils.so
 system_ext/lib64/libqspmsvc.so
-system_ext/lib64/libqti-at.so
 system_ext/lib64/libqti-MemHal-client-system.so
+system_ext/lib64/libqti-at.so
 system_ext/lib64/libqti-iopd-client_system.so
 system_ext/lib64/libqti-perfd-client_system.so
 system_ext/lib64/libqti_performance.so
 system_ext/lib64/libqti_workloadclassifiermodel.so
 system_ext/lib64/libskewknob_system.so
 system_ext/lib64/libsmomoconfig.qti.so
+system_ext/lib64/vendor.qti.hardware.iop@2.0.so
 system_ext/lib64/vendor.qti.hardware.limits@1.0.so
 system_ext/lib64/vendor.qti.hardware.limits@1.1.so
-system_ext/lib64/vendor.qti.hardware.iop@2.0.so
 system_ext/lib64/vendor.qti.hardware.perf@2.0.so
 system_ext/lib64/vendor.qti.hardware.perf@2.1.so
 system_ext/lib64/vendor.qti.hardware.perf@2.2.so
 system_ext/lib64/vendor.qti.hardware.perf@2.3.so
-system_ext/lib64/vendor.qti.qspmhal@1.0.so
 system_ext/lib64/vendor.qti.qspmhal-V1-ndk.so
-system/etc/permissions/com.qualcomm.qti.Performance.xml|7976f2fd46b8d07814310cc957a70f829bdd6932
-system/etc/permissions/com.qualcomm.qti.UxPerformance.xml|d92749d80c5d956db8251b08ea6388d3f107a32c
-system/framework/QPerformance.jar
-system/framework/QXPerformance.jar
-system/framework/UxPerformance.jar
-system/lib64/vendor.qti.hardware.perf2-V1-ndk.so
-system/lib64/vendor.qti.MemHal-V1-ndk.so
+system_ext/lib64/vendor.qti.qspmhal@1.0.so

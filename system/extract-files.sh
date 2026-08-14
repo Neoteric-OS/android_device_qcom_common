@@ -63,6 +63,11 @@ function blob_fixup() {
             sed -i 's/xml version="2.0"/xml version="1.0"/g' "${2}"
             ;;
 
+        system_ext/etc/seccomp_policy/perfservice.policy)
+            [ "$2" = "" ] && return 0
+            grep -q "^lseek:" "${2}" || printf '\nlseek: 1\n' >> "${2}"
+            ;;
+
         system/framework/QXPerformance.jar)
             [ "$2" = "" ] && return 0
             mv "${2}" "${2}.tmp"

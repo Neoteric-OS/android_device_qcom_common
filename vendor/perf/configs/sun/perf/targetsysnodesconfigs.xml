@@ -24,6 +24,9 @@
         <SysNode Idx="0xE" Node="/sys/kernel/msm_performance/notify/top_load_cluster" />
         <SysNode Idx="0xF" Node="/sys/kernel/msm_performance/notify/curr_cap_cluster" />
         <SysNode Idx="0x12" Supported="no" />
+        <SysNode Idx="0x14" Node="/sys/class/drm/card0-sde-crtc-0/measured_fps" />
+        <SysNode Idx="0x15" Node="/sys/class/drm/card0-sde-crtc-0/fps_periodicity_ms" />
+        <SysNode Idx="0x16" Node="/sys/class/drm/card0-sde-crtc-0/retire_frame_event" />
         <SysNode Idx="0x17" Supported="no" />
         <SysNode Idx="0x18" Supported="no" />
         <SysNode Idx="0x19" Supported="no" />
