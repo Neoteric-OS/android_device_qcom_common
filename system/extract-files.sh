@@ -81,6 +81,11 @@ function blob_fixup() {
             "${PATCHELF}" --replace-needed "android.media.audio.common.types-V4-cpp.so" "android.media.audio.common.types-V5-cpp.so" "${2}"
             ;;
 
+        system_ext/etc/init/vendor.qti.hardware.qccsyshal@1.2-service.rc)
+            [ "$2" = "" ] && return 0
+            grep -q "IQccsyshal" "${2}" || sed -i 's/group misc system/group misc system\n    interface vendor.qti.hardware.qccsyshal@1.2::IQccsyshal qccsyshal\n    interface vendor.qti.hardware.qccsyshal@1.1::IQccsyshal qccsyshal\n    interface vendor.qti.hardware.qccsyshal@1.0::IQccsyshal qccsyshal/' "${2}"
+            ;;
+
         system_ext/lib64/libmink-sock-native-api.so)
             [ "$2" = "" ] && return 0
             "${PATCHELF}" --remove-needed "libminksocket_system.so" "${2}"
