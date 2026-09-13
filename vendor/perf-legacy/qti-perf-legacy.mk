@@ -1,4 +1,4 @@
-# Copyright (C) 2023 Paranoid Android
+# Copyright (C) 2026 Neoteric OS
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,14 +13,27 @@
 # limitations under the License.
 
 PRODUCT_SOONG_NAMESPACES += \
-    device/qcom/common/vendor/perf
+    device/qcom/common/vendor/perf-legacy
 
-TARGET_PERF_COMPONENT_VARIANT := perf
+TARGET_PERF_COMPONENT_VARIANT := perf-legacy
 
 # Configs
+# Use the configs for TARGET_BOARD_PLATFORM unless otherwise specified
+ifeq ($(TARGET_BOARD_PLATFORM)$(TARGET_BOARD_SUFFIX),bengal_515)
+    TARGET_PERF_DIR := bengal_515
+else
+    TARGET_PERF_DIR := $(TARGET_BOARD_PLATFORM)
+endif
+
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(QCOM_COMMON_PATH)/vendor/perf/configs/common,$(TARGET_COPY_OUT_VENDOR)/etc) \
-    $(call find-copy-subdir-files,*,$(QCOM_COMMON_PATH)/vendor/perf/configs/$(TARGET_BOARD_PLATFORM),$(TARGET_COPY_OUT_VENDOR)/etc)
+    $(call find-copy-subdir-files,*,$(QCOM_COMMON_PATH)/vendor/perf-legacy/configs/$(TARGET_PERF_DIR),$(TARGET_COPY_OUT_VENDOR)/etc) \
+    $(call find-copy-subdir-files,*,$(QCOM_COMMON_PATH)/vendor/perf-legacy/configs/common,$(TARGET_COPY_OUT_VENDOR)/etc)
+
+# Disable the poweropt service for <5.4 platforms.
+ifneq (,$(filter 4.4 4.9 4.14 4.19, $(TARGET_KERNEL_VERSION)))
+PRODUCT_COPY_FILES += \
+    $(QCOM_COMMON_PATH)/vendor/perf-legacy/poweropt-service-disable.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/poweropt-service-disable.rc
+endif
 
 # Flag for inheriting qspm aidl on > 5.15 targets
 ifeq (,$(filter 3.18 4.4 4.9 4.14 4.19 5.4 5.10 5.15, $(TARGET_KERNEL_VERSION)))
@@ -66,4 +79,4 @@ PRODUCT_VENDOR_PROPERTIES += \
     log.tag.vendor.qti.hardware.servicetrackeraidl-service=E
 
 # Get non-open-source specific aspects
-$(call inherit-product-if-exists, vendor/qcom/common/vendor/perf/perf-vendor.mk)
+$(call inherit-product-if-exists, vendor/qcom/common/vendor/perf-legacy/perf-legacy-vendor.mk)
