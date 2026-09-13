@@ -73,6 +73,7 @@ WIFI_FEATURE_SUPPLICANT_11BE := true
 
 # IPACM
 PRODUCT_SOONG_NAMESPACES += vendor/qcom/opensource/data-ipa-cfg-mgr
+PRODUCT_SOONG_NAMESPACES += vendor/qcom/opensource/dataipa
 $(call inherit-product, vendor/qcom/opensource/data-ipa-cfg-mgr/ipacm_vendor_product.mk)
 
 # Include QCOM WLAN makefile.
