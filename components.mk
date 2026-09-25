@@ -55,7 +55,9 @@ endif
 
 ifneq (,$(filter alarm, $(TARGET_COMMON_QTI_COMPONENTS)))
   include $(QCOM_COMMON_PATH)/system/alarm/qti-alarm.mk
-  include $(QCOM_COMMON_PATH)/vendor/alarm/qti-alarm.mk
+  ifneq (,$(filter 4.4 4.9 4.14 4.19 5.4 5.10 5.15, $(TARGET_KERNEL_VERSION)))
+      include $(QCOM_COMMON_PATH)/vendor/alarm/qti-alarm.mk
+  endif
 endif
 
 ifneq (,$(filter audio, $(TARGET_COMMON_QTI_COMPONENTS)))
