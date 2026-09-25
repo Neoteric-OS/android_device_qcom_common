@@ -131,7 +131,9 @@ endif
 
 ifneq (,$(filter overlay, $(TARGET_COMMON_QTI_COMPONENTS)))
   include $(QCOM_COMMON_PATH)/system/overlay/qti-overlay.mk
-  include $(QCOM_COMMON_PATH)/vendor/overlay/qti-overlay.mk
+  ifneq (,$(filter 4.4 4.9 4.14 4.19 5.4 5.10 5.15, $(TARGET_KERNEL_VERSION)))
+      include $(QCOM_COMMON_PATH)/vendor/overlay/qti-overlay.mk
+  endif
 endif
 
 ifneq (,$(filter perf, $(TARGET_COMMON_QTI_COMPONENTS)))
