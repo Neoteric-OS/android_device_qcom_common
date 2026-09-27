@@ -114,7 +114,7 @@ ifeq (,$(filter 3.18 4.4, $(TARGET_KERNEL_VERSION)))
 endif
 
 # Enable Gralloc4 on UM platforms that support it
-ifeq (,$(filter 3.18 4.4 4.9 4.14 4.19, $(TARGET_KERNEL_VERSION)))
+ifeq (,$(filter 3.18 4.4 4.9, $(TARGET_KERNEL_VERSION)))
     SOONG_CONFIG_qtidisplay_gralloc4 := true
 endif
 
@@ -123,6 +123,16 @@ SOONG_CONFIG_qtidisplay_displayconfig_enabled := true
 
 ifeq (,$(filter 3.18 4.4 4.9 4.14 4.19 5.4, $(TARGET_KERNEL_VERSION)))
     TARGET_USES_QCOM_AUDIO_AR ?= true
+endif
+
+# Enable SMMU proxy on UM platforms that support it
+ifeq (,$(filter 3.18 4.4 4.9 4.14 4.19 5.4 5.10 5.15, $(TARGET_KERNEL_VERSION)))
+    SOONG_CONFIG_qtidisplay_smmu_proxy := true
+endif
+
+# Expose UBWCP headers to UM platforms that require it
+ifeq (,$(filter 3.18 4.4 4.9 4.14 4.19 5.4 5.10 5.15, $(TARGET_KERNEL_VERSION)))
+    SOONG_CONFIG_qtidisplay_ubwcp_headers := true
 endif
 
 # Allow a device to opt-out hardset of PRODUCT_SOONG_NAMESPACES
