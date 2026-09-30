@@ -13,8 +13,13 @@
 # limitations under the License.
 
 # Include display HAL makefiles.
+ifeq (,$(filter 3.18 4.4 4.9 4.14 4.19 5.4 5.10 5.15 6.1, $(TARGET_KERNEL_VERSION)))
+-include hardware/qcom-caf/$(QCOM_HARDWARE_VARIANT)/display/hal/config/display-board.mk
+-include hardware/qcom-caf/$(QCOM_HARDWARE_VARIANT)/display/hal/config/display-product.mk
+else
 -include hardware/qcom-caf/$(QCOM_HARDWARE_VARIANT)/display/config/display-board.mk
 -include hardware/qcom-caf/$(QCOM_HARDWARE_VARIANT)/display/config/display-product.mk
+endif
 
 # Enable Legacy Lights HAL for <5.10 targets
 ifneq (,$(filter 3.18 4.4 4.9 4.14 4.19 5.4, $(TARGET_KERNEL_VERSION)))
